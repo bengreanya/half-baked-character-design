@@ -14,9 +14,8 @@ const catchphraseButton = document.getElementById("catchphrase-button");
 let headCount = 0;
 let middleCount = 0;
 let bottomCount = 0;
-let catchphrase = [];
+let catchphrases = [];
 // set state for all of the character's catchphrases
-const catchphrases = [];
 
 headDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
@@ -50,10 +49,9 @@ catchphraseButton.addEventListener("click", () => {
   //   displayCatchphrases();
   //   catchphraseInput.value = "";
   // });
-  const newCatchphrase = catchphraseInput.value;
-  catchphrases.push(newCatchphrase);
-  catchphraseInput.value = "";
+  catchphrases.push(catchphraseInput.value);
   displayCatchphrases();
+  catchphraseInput.value = "";
 });
 function displayStats() {
   // text content of the reportEl to tell the user how many times they've changed each piece of the state
@@ -64,9 +62,9 @@ function displayCatchphrases() {
   catchphrasesEl.textContent = "";
   // loop through each catchphrase in state
   for (let catchphrase of catchphrases) {
-    const p = docoument.createElement("p");
-    p.classList.add("catchphrase");
-    p.textContent = catchphrase;
+    const p = document.createElement("p");
+    p.classList.add("catchphrases");
+    p.textContent = catchphrases;
     catchphrasesEl.append(p);
   }
   // and for each catchphrase
