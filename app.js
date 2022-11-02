@@ -16,29 +16,30 @@ let middleCount = 0;
 let bottomCount = 0;
 // set state for all of the character's catchphrases
 const catchphrases = [];
-headDropdown.addEventListener("change", () => {
-  const value = headDropdown.value;
+headDropdown.addEventListener('change', (e) => {
+  const value = e.target.value;
   headCount++;
-  headEl.style.backgroundImage = `url("./assets/${value}-head.png")`;
+  headImg.src = `./assets/${value}.png`
   displayStats();
 });
 
-middleDropdown.addEventListener("change", () => {
+middleDropdown.addEventListener("change", (e) => {
   const value = middleDropdown.value;
   middleCount++;
-  middleEl.style.backgroundImage = `url("./assets/${value}-middle.png")`;
+  middleImg.src = `./assets/${value}.png`;
   displayStats();
 });
 
-bottomDropdown.addEventListener("change", () => {
-  // get the value of the bottom dropdown
-  // increment the bottom change count state
-  // update the dom for the bottom (NOTE use style.backgroundImage on the bottomEl div instead of trying to set the .src -- it's NOT an img tag!)
-  // update the stats to show the new count (call displayStats() to do this work)
+bottomDropdown.addEventListener("change", (e) => {
+  const value = bottomDropdown.value;
+  bottomCount++;
+  bottomImg.src = `./assets/${value}.png`;
+  displayStats();
 });
 
 catchphraseButton.addEventListener("click", () => {
   // get the value of the catchphrase input
+  const 
   // push the new catchphrase to the catchphrase array in state
   // clear out the form input's value so it's empty to the user
   // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
