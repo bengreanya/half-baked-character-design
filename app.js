@@ -14,36 +14,42 @@ const catchphraseButton = document.getElementById("catchphrase-button");
 let headCount = 0;
 let middleCount = 0;
 let bottomCount = 0;
+let catchphrase = [];
 // set state for all of the character's catchphrases
 const catchphrases = [];
-headDropdown.addEventListener('change', (e) => {
+
+headDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
+  headEl.style.backgroundImage = `url("./assets/${value}-head.png")`;
   headCount++;
-  headImg.src = `./assets/${value}.png`
   displayStats();
 });
 
 middleDropdown.addEventListener("change", (e) => {
-  const value = middleDropdown.value;
+  const value = e.target.value;
   middleCount++;
-  middleImg.src = `./assets/${value}.png`;
+  middleStyle.src = `./assets/${value}.png`;
   displayStats();
 });
 
 bottomDropdown.addEventListener("change", (e) => {
-  const value = bottomDropdown.value;
+  const value = e.target.value;
   bottomCount++;
-  bottomImg.src = `./assets/${value}.png`;
+  bottomEL.style.backgroundImage = `url("./assets/${value}-pants.png")`;
   displayStats();
 });
 
-catchphraseButton.addEventListener("click", () => {
-  // get the value of the catchphrase input
-  const 
-  // push the new catchphrase to the catchphrase array in state
-  // clear out the form input's value so it's empty to the user
-  // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
-});
+// catchphraseButton.addEventListener("click", () => {
+//   // get the value of the catchphrase input
+//   //   is this the state up above?
+//   // push the new catchphrase to the catchphrase array in state
+//   catchphraseButton.push(catchphraseInput.value);
+//   // clear out the form input's value so it's empty to the user
+
+//   // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
+//   displayCatchphrases();
+//   catchphraseInput.value = "";
+// });
 
 function displayStats() {
   // text content of the reportEl to tell the user how many times they've changed each piece of the state
