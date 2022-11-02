@@ -27,37 +27,48 @@ headDropdown.addEventListener("change", (e) => {
 
 middleDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
+  middleEl.style.backgroundImage = `url("./assets/${value}-middle.png")`;
   middleCount++;
-  middleStyle.src = `./assets/${value}.png`;
   displayStats();
 });
 
 bottomDropdown.addEventListener("change", (e) => {
   const value = e.target.value;
+  bottomEl.style.backgroundImage = `url("./assets/${value}-pants.png")`;
   bottomCount++;
-  bottomEL.style.backgroundImage = `url("./assets/${value}-pants.png")`;
   displayStats();
 });
 
-// catchphraseButton.addEventListener("click", () => {
-//   // get the value of the catchphrase input
-//   //   is this the state up above?
-//   // push the new catchphrase to the catchphrase array in state
-//   catchphraseButton.push(catchphraseInput.value);
-//   // clear out the form input's value so it's empty to the user
+catchphraseButton.addEventListener("click", () => {
+  //   // get the value of the catchphrase input
+  //   //   is this the state up above?
+  //   // push the new catchphrase to the catchphrase array in state
+  //   catchphraseButton.push(catchphraseInput.value);
+  //   // clear out the form input's value so it's empty to the user
 
-//   // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
-//   displayCatchphrases();
-//   catchphraseInput.value = "";
-// });
-
+  //   // update the dom to show the new catchphrases (refactor to/call displayCatchphrases to do this work)
+  //   displayCatchphrases();
+  //   catchphraseInput.value = "";
+  // });
+  const newCatchphrase = catchphraseInput.value;
+  catchphrases.push(newCatchphrase);
+  catchphraseInput.value = "";
+  displayCatchphrases();
+});
 function displayStats() {
   // text content of the reportEl to tell the user how many times they've changed each piece of the state
 }
 
 function displayCatchphrases() {
   // clear out the DOM for the currently displayed catchphrases
+  catchphrasesEl.textContent = "";
   // loop through each catchphrase in state
+  for (let catchphrase of catchphrases) {
+    const p = docoument.createElement("p");
+    p.classList.add("catchphrase");
+    p.textContent = catchphrase;
+    catchphrasesEl.append(p);
+  }
   // and for each catchphrase
   // create an HTML element with the catchphrase as its text content
   // and append that HTML element to the cleared-out DOM
