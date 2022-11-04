@@ -45,8 +45,7 @@ catchphraseButton.addEventListener("click", () => {
 });
 function displayStats() {
   // text content of the reportEl to tell the user how many times they've changed each piece of the state
-  reportEl.textContent =
-    "You have changed heads ${headCount} times! You have changed middles ${middleCount} times! You have changed bottoms ${bottomCount} times!";
+  reportEl.textContent = `You have changed heads ${headCount} times! You have changed middles ${middleCount} times! You have changed bottoms ${bottomCount} times`;
 }
 
 function displayCatchphrases() {
