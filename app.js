@@ -58,7 +58,6 @@ function displayCatchphrases() {
   for (let catchphrase of catchphrases) {
     const p = document.createElement("p");
     p.classList.add("catchphrase");
-    g;
     p.textContent = catchphrase;
     catchphrasesEl.append(p);
   }
